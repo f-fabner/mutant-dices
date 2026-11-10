@@ -26,7 +26,7 @@ export function openRoller() {
       ${rows}
     </div>`;
 
-  new foundry.applications.api.DialogV2({
+  const dialog = new foundry.applications.api.DialogV2({
     window: { title: i18n("Roller.Title"), icon: "fa-solid fa-dice" },
     classes: ["mutant-dices-roller-dialog"],
     content,
@@ -36,18 +36,20 @@ export function openRoller() {
       icon: "fa-solid fa-dice",
       default: true,
       callback: (_event, button) => roll(button.form.elements)
-    }],
-    render: (_event, dialog) => attachSteppers(dialog.element ?? dialog)
-  }).render({ force: true });
+    }]
+  });
+  // One delegated listener on the dialog element, added once it exists.
+  dialog.render({ force: true }).then(() => attachSteppers(dialog.element));
 }
 
 function attachSteppers(root) {
-  root.querySelectorAll(".mutant-dices-roller .stepper").forEach((button) => {
-    button.addEventListener("click", () => {
-      const input = root.querySelector(`input[name="${button.dataset.target}"]`);
-      const next = (Number(input.value) || 0) + Number(button.dataset.step);
-      input.value = Math.clamp(next, 0, MAX_DICE);
-    });
+  root.addEventListener("click", (event) => {
+    const button = event.target.closest(".mutant-dices-roller .stepper");
+    if (!button) return;
+    event.preventDefault();
+    const input = root.querySelector(`input[name="${button.dataset.target}"]`);
+    const next = (Number(input.value) || 0) + Number(button.dataset.step);
+    input.value = Math.clamp(next, 0, MAX_DICE);
   });
 }
 
