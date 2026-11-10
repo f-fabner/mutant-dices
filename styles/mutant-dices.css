@@ -1,0 +1,85 @@
+/* Mutant Dices — module styles */
+
+:root {
+  --mutant-dices-base: #f2c200;
+  --mutant-dices-skill: #1f8f3a;
+  --mutant-dices-gear: #1c1c1c;
+  --mutant-dices-penalty: #c62828;
+}
+
+/* A single die face: transparent SVG ink on a colored tile. */
+img.mutant-dices-face {
+  box-sizing: border-box;
+  width: 30px;
+  height: 30px;
+  padding: 2px;
+  border: none;
+  border-radius: 6px;
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.25);
+  vertical-align: middle;
+}
+img.mutant-dices-face.base { background-color: var(--mutant-dices-base); }
+img.mutant-dices-face.skill { background-color: var(--mutant-dices-skill); }
+img.mutant-dices-face.gear { background-color: var(--mutant-dices-gear); }
+img.mutant-dices-face.penalty { outline: 2px solid var(--mutant-dices-penalty); outline-offset: -2px; }
+
+/* System roll card: keep its layout, only the faces change. */
+.myz.chat-item .dices-result .dice img.mutant-dices-face {
+  width: 30px;
+  height: 30px;
+  margin: 0 3px 3px 0;
+}
+
+/* Plain rolls ("/r 3db + 2ds") */
+.mutant-dices-roll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 0;
+}
+.mutant-dices-roll .mutant-dices-faces {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3px;
+}
+.mutant-dices-roll .mutant-dices-faces img {
+  animation: mutant-dices-pop 0.25s ease-out both;
+}
+.mutant-dices-roll .mutant-dices-faces img:nth-child(2n) { animation-delay: 0.04s; }
+.mutant-dices-roll .mutant-dices-faces img:nth-child(3n) { animation-delay: 0.08s; }
+.mutant-dices-roll .mutant-dices-summary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+.mutant-dices-roll .mutant-dices-summary i { margin-left: 2px; }
+.mutant-dices-roll .mutant-dices-summary .separator { opacity: 0.5; }
+
+@keyframes mutant-dices-pop {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+/* Roller dialog */
+.mutant-dices-roller {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.mutant-dices-roller-row {
+  display: grid;
+  grid-template-columns: 30px 1fr 28px 52px 28px;
+  align-items: center;
+  gap: 6px;
+}
+.mutant-dices-roller-row input[type="number"] { text-align: center; }
+.mutant-dices-roller-row .stepper {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  line-height: 1;
+}

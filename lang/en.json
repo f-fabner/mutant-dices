@@ -1,0 +1,32 @@
+{
+  "MUTANT_DICES": {
+    "WrongSystem": "Mutant Dices only works with the Mutant: Year Zero system.",
+    "Dice": {
+      "base": "Base",
+      "skill": "Skill",
+      "gear": "Gear"
+    },
+    "Results": {
+      "Successes": "Successes",
+      "Trauma": "Trauma",
+      "GearDamage": "Gear damage"
+    },
+    "Roller": {
+      "Title": "Mutant Dice Roller",
+      "RollName": "Roll name",
+      "DefaultName": "Mutant Roll",
+      "Roll": "Roll",
+      "NoDice": "Choose at least one die to roll."
+    },
+    "Settings": {
+      "RestyleChat": {
+        "Name": "Mutant Dices faces in chat",
+        "Hint": "Show Mutant: Year Zero dice in chat with the module's faces."
+      },
+      "Debug": {
+        "Name": "Debug mode",
+        "Hint": "Print extra information to the browser console."
+      }
+    }
+  }
+}

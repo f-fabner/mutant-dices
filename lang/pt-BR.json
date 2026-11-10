@@ -1,0 +1,32 @@
+{
+  "MUTANT_DICES": {
+    "WrongSystem": "Mutant Dices só funciona com o sistema Mutant: Year Zero.",
+    "Dice": {
+      "base": "Base",
+      "skill": "Perícia",
+      "gear": "Equipamento"
+    },
+    "Results": {
+      "Successes": "Sucessos",
+      "Trauma": "Trauma",
+      "GearDamage": "Dano ao equipamento"
+    },
+    "Roller": {
+      "Title": "Rolador de Dados Mutant",
+      "RollName": "Nome da rolagem",
+      "DefaultName": "Rolagem Mutant",
+      "Roll": "Rolar",
+      "NoDice": "Escolha pelo menos um dado para rolar."
+    },
+    "Settings": {
+      "RestyleChat": {
+        "Name": "Faces do Mutant Dices no chat",
+        "Hint": "Mostra os dados de Mutant: Year Zero no chat com as faces do módulo."
+      },
+      "Debug": {
+        "Name": "Modo debug",
+        "Hint": "Exibe informações extras no console do navegador."
+      }
+    }
+  }
+}
