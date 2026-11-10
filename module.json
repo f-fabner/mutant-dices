@@ -2,7 +2,7 @@
   "id": "mutant-dices",
   "title": "Mutant Dices",
   "description": "Clearer Mutant: Year Zero dice: new 3D faces for Dice So Nice, compact dice results in chat and a quick dice roller.",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "compatibility": {
     "minimum": "13",
     "verified": "14"

@@ -31,6 +31,9 @@
         "Name": "Modo debug",
         "Hint": "Exibe informações extras no console do navegador."
       }
+    },
+    "Errors": {
+      "RollCard": "O Mutant Dices não conseguiu criar o card da rolagem. Veja o console do navegador (F12) para detalhes."
     }
   }
 }

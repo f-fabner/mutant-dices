@@ -2,7 +2,7 @@ import { MODULE_ID, SYSTEM_ID, log } from "./constants.js";
 import { registerSettings } from "./settings.js";
 import { registerDiceSoNice } from "./dice-so-nice.js";
 import { onRenderChatMessage } from "./chat.js";
-import { onChatMessage } from "./commands.js";
+import { onPreCreateChatMessage } from "./commands.js";
 import { openRoller } from "./roller.js";
 
 Hooks.once("init", () => {
@@ -21,7 +21,7 @@ Hooks.once("ready", () => {
 
 Hooks.once("diceSoNiceReady", registerDiceSoNice);
 Hooks.on("renderChatMessageHTML", onRenderChatMessage);
-Hooks.on("chatMessage", onChatMessage);
+Hooks.on("preCreateChatMessage", onPreCreateChatMessage);
 
 /* -------------------------------------------- */
 /*  Roller buttons                              */

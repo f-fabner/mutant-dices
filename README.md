@@ -69,7 +69,8 @@ You can also roll Mutant dice straight from chat. Type for example `/r 3db + 2ds
 - Add a name after `#`: `/r 3db + 1ds # Sneak` shows "Sneak" on the card.
 - If a token is selected, the roll is made as that character.
 - `/roll` works too, and upper case is fine (`/R 3DB`).
-- Commands with anything else in them, like `/r 2db + 1d20`, are normal Foundry rolls. Plain rolls with Mutant dice, like `/gmr 2db`, still show the new faces and the count of successes, trauma and gear damage, but can't be pushed.
+- Commands with anything else in them, like `/r 2db + 1d20`, are normal Foundry rolls.
+- The card uses the roll mode selected under the chat (public, private GM, blind, self). A command that asks for a different mode, like `/gmr 2db` while the chat is set to public, keeps that mode: it still shows the new faces and the count of successes, trauma and gear damage, but can't be pushed.
 
 <p>
   <img src="docs/images/chat-command.png" alt="Typing /r 3db + 2ds + 1dg in chat" width="300">

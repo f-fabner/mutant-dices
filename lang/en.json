@@ -31,6 +31,9 @@
         "Name": "Debug mode",
         "Hint": "Print extra information to the browser console."
       }
+    },
+    "Errors": {
+      "RollCard": "Mutant Dices could not create the roll card. See the browser console (F12) for details."
     }
   }
 }

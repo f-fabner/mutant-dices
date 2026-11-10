@@ -51,7 +51,7 @@ function restylePlainRolls(message, html) {
  * @param {Roll} roll
  * @returns {{type: string, value: number}[] | null}
  */
-function getMutantPool(roll) {
+export function getMutantPool(roll) {
   const pool = [];
   for (const term of roll.terms) {
     if (term instanceof foundry.dice.terms.OperatorTerm && term.operator === "+") continue;

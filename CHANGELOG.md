@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.2.1] - 2026-11-10
+- Fixed `/r` rolls of Mutant dice not getting the Push button on Foundry v14.
+
 ## [0.2.0] - 2026-11-10
 - Chat commands with only Mutant dice (`/r 3db + 2ds + 1dg`) now make the system's roll card, so they can be pushed. Text after `#` becomes the roll name.
 - New world setting "Push for /r rolls" to turn this off.
