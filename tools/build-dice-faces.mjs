@@ -97,7 +97,7 @@ export function face(type, value) {
   else if (value === 1 && type === "base") content = biohazard(ink, id) + SMALL(1, ink);
   else if (value === 1 && type === "gear") content = explosion(ink) + SMALL(1, ink);
   else content = digit(value, C, C, 46, 7, ink);
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="256" height="256">${RING(ink)}${content}</svg>\n`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="512" height="512">${RING(ink)}${content}</svg>\n`;
 }
 
 mkdirSync(OUT_DIR, { recursive: true });
@@ -122,7 +122,7 @@ types.forEach((type, row) => {
   sheet += `<text x="${GAP}" y="${y + TILE / 2 + 7}" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#888888">${DICE[type].label}</text>`;
   for (let v = 1; v <= 6; v++) {
     const x = GAP + LABEL_WIDTH + (v - 1) * (TILE + GAP);
-    const inner = face(type, v).trim().replace('width="256" height="256"', `x="${x + 6}" y="${y + 6}" width="${TILE - 12}" height="${TILE - 12}"`);
+    const inner = face(type, v).trim().replace('width="512" height="512"', `x="${x + 6}" y="${y + 6}" width="${TILE - 12}" height="${TILE - 12}"`);
     sheet += `<rect x="${x}" y="${y}" width="${TILE}" height="${TILE}" rx="18" fill="${DICE[type].body}"/>${inner}`;
   }
 });

@@ -25,7 +25,10 @@ export function registerDiceSoNice(dice3d) {
 
     dice3d.addDicePreset({
       type: die.dsnType,
-      labels: [1, 2, 3, 4, 5, 6].map((value) => facePath(type, value)),
+      // Dice So Nice only treats a label as an image when the path ends in .png/.jpg/.gif/.webp;
+      // anything else is drawn as text. The query string makes the SVG path end in ".png"
+      // without changing the file that is served, and the browser draws the SVG normally.
+      labels: [1, 2, 3, 4, 5, 6].map((value) => `${facePath(type, value)}?dsn=.png`),
       colorset,
       system: MODULE_ID
     });

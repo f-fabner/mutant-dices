@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.0.2] - 2026-11-10
+- Fixed the 3D dice showing text instead of the faces in Dice So Nice.
+
 ## [1.0.1] - 2026-11-10
 - Dice So Nice now uses the same SVG faces as the chat. The PNG copies were removed.
 - Reworded interface texts in English and Portuguese.
