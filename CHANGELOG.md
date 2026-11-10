@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.1] - 2026-11-10
+- Dice So Nice now uses the same SVG faces as the chat. The PNG copies were removed.
+- Reworded interface texts in English and Portuguese.
+
 ## [1.0.0] - 2026-11-10
 First stable release.
 - README: new screenshots of chat commands and pushing, and a disclaimer: unofficial, free, not affiliated with Free League Publishing.

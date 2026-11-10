@@ -1,6 +1,6 @@
 {
   "MUTANT_DICES": {
-    "WrongSystem": "Mutant Dices só funciona com o sistema Mutant: Year Zero.",
+    "WrongSystem": "Mutant Dices só funciona com o sistema Mutante: Ano Zero.",
     "Dice": {
       "base": "Base",
       "skill": "Perícia",
@@ -12,28 +12,28 @@
       "GearDamage": "Dano ao equipamento"
     },
     "Roller": {
-      "Title": "Rolador de Dados Mutant",
+      "Title": "Rolador de Dados Mutante",
       "RollName": "Nome da rolagem",
-      "DefaultName": "Rolagem Mutant",
+      "DefaultName": "Rolagem Mutante",
       "Roll": "Rolar",
-      "NoDice": "Escolha pelo menos um dado para rolar."
+      "NoDice": "Escolha pelo menos um dado para fazer a rolagem."
     },
     "Settings": {
       "RestyleChat": {
-        "Name": "Faces do Mutant Dices no chat",
-        "Hint": "Mostra os dados de Mutant: Year Zero no chat com as faces do módulo."
+        "Name": "Faces dos dados de Mutante no chat",
+        "Hint": "Mostra as faces dos dados de Mutante no chat."
       },
       "PushableCommands": {
         "Name": "Push nas rolagens /r",
-        "Hint": "Comandos no chat só com dados de Mutant, como \"/r 3db + 2ds + 1dg\", usam o card de rolagem do sistema e podem ser forçados (Push). O texto depois de # vira o nome da rolagem."
+        "Hint": "Comandos de chat usando apenas dados de Mutante: Ano Zero utilizam o cartão de rolagem do sistema, para que seja possível realizar um push (rolagem forçada). O texto após o símbolo # define o nome dessa rolagem."
       },
       "Debug": {
         "Name": "Modo debug",
-        "Hint": "Exibe informações extras no console do navegador."
+        "Hint": "Exibe informações adicionais no console do navegador."
       }
     },
     "Errors": {
-      "RollCard": "O Mutant Dices não conseguiu criar o card da rolagem. Veja o console do navegador (F12) para detalhes."
+      "RollCard": "O Mutant Dices não conseguiu criar o card de rolagem. Veja o console do navegador, apertando F12, para detalhes."
     }
   }
 }

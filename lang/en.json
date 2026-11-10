@@ -20,12 +20,12 @@
     },
     "Settings": {
       "RestyleChat": {
-        "Name": "Mutant Dices faces in chat",
+        "Name": "Mutant Dice faces in chat",
         "Hint": "Show Mutant: Year Zero dice in chat with the module's faces."
       },
       "PushableCommands": {
         "Name": "Push for /r rolls",
-        "Hint": "Chat commands with only Mutant dice, like \"/r 3db + 2ds + 1dg\", use the system's roll card so they can be pushed. Text after # becomes the roll name."
+        "Hint": "Chat commands with only Mutant dice use the system's roll card, so they can be pushed. Text after # becomes the roll name."
       },
       "Debug": {
         "Name": "Debug mode",

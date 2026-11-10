@@ -25,7 +25,7 @@ export function registerDiceSoNice(dice3d) {
 
     dice3d.addDicePreset({
       type: die.dsnType,
-      labels: [1, 2, 3, 4, 5, 6].map((value) => facePath(type, value, "png")),
+      labels: [1, 2, 3, 4, 5, 6].map((value) => facePath(type, value)),
       colorset,
       system: MODULE_ID
     });

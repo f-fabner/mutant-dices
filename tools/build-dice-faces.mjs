@@ -5,13 +5,11 @@
  * so the same file works on top of a Dice So Nice colorset and on top of a
  * CSS-colored tile in the chat.
  *
- * It also writes a 512 px PNG of each face, used by Dice So Nice,
- * and docs/images/dice-faces.png, the overview shown in the README.
+ * It also writes docs/images/dice-faces.svg, the overview shown in the README.
  *
- * Usage: npm install && npm run build:faces
+ * Usage: npm run build:faces
  */
 import { mkdirSync, writeFileSync } from "node:fs";
-import { Resvg } from "@resvg/resvg-js";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -104,14 +102,9 @@ export function face(type, value) {
 
 mkdirSync(OUT_DIR, { recursive: true });
 for (const type of Object.keys(DICE)) {
-  for (let v = 1; v <= 6; v++) {
-    const svg = face(type, v);
-    writeFileSync(join(OUT_DIR, `${type}-${v}.svg`), svg);
-    const png = new Resvg(svg, { fitTo: { mode: "width", value: 512 } }).render().asPng();
-    writeFileSync(join(OUT_DIR, `${type}-${v}.png`), png);
-  }
+  for (let v = 1; v <= 6; v++) writeFileSync(join(OUT_DIR, `${type}-${v}.svg`), face(type, v));
 }
-console.log(`Wrote ${Object.keys(DICE).length * 6} faces (SVG + PNG) to ${OUT_DIR}`);
+console.log(`Wrote ${Object.keys(DICE).length * 6} faces to ${OUT_DIR}`);
 
 /* ------------------------------------------------------------------ */
 /*  README overview: one row per die, faces 1 to 6                     */
@@ -133,8 +126,8 @@ types.forEach((type, row) => {
     sheet += `<rect x="${x}" y="${y}" width="${TILE}" height="${TILE}" rx="18" fill="${DICE[type].body}"/>${inner}`;
   }
 });
-sheet += "</svg>";
+sheet += "</svg>\n";
 const DOCS_DIR = join(ROOT, "docs", "images");
 mkdirSync(DOCS_DIR, { recursive: true });
-writeFileSync(join(DOCS_DIR, "dice-faces.png"), new Resvg(sheet, { font: { loadSystemFonts: true } }).render().asPng());
-console.log(`Wrote ${join(DOCS_DIR, "dice-faces.png")}`);
+writeFileSync(join(DOCS_DIR, "dice-faces.svg"), sheet);
+console.log(`Wrote ${join(DOCS_DIR, "dice-faces.svg")}`);

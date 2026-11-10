@@ -19,9 +19,9 @@ export const TYPE_BY_DENOMINATION = Object.fromEntries(
   Object.entries(DICE).map(([type, die]) => [die.denomination, type])
 );
 
-/** Path to the image of one face. Chat uses SVG, Dice So Nice uses PNG. */
-export function facePath(type, value, ext = "svg") {
-  return `modules/${MODULE_ID}/assets/dice/${type}-${value}.${ext}`;
+/** Path to the SVG image of one face, used both in chat and by Dice So Nice. */
+export function facePath(type, value) {
+  return `modules/${MODULE_ID}/assets/dice/${type}-${value}.svg`;
 }
 
 /** Log helper prefixed with the module title. */
