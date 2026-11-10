@@ -1,35 +1,109 @@
 # Mutant Dices
 
-Clearer dice for the [Mutant: Year Zero](https://foundryvtt.com/packages/mutant-year-zero) system on [Foundry VTT](https://foundryvtt.com/).
+**Clear, readable dice for the [Mutant: Year Zero](https://foundryvtt.com/packages/mutant-year-zero) system on [Foundry VTT](https://foundryvtt.com/).**
 
-> **Work in progress.** This module is still being developed and hasn't been fully tested yet. Expect bugs and changes.
+Mutant Dices gives the base, skill and gear dice faces that look like the physical dice: numbers you can read at a glance, radiation on the 6, biohazard and explosion on the 1. You get the same faces on the 3D dice, in every chat roll, and in a new quick dice roller.
+
+> **Work in progress.** The module works, but it is still being developed. Expect changes, and please [report any bugs](https://github.com/f-fabner/mutant-dices/issues).
+
+![3D dice rolled from a character sheet](docs/images/dice-3d-sheet-roll.webp)
 
 ## Features
 
-- **3D dice:** new faces for the base (yellow), skill (green) and gear (black) dice in [Dice So Nice](https://foundryvtt.com/packages/dice-so-nice). Numbers 2–5 in a circle, radiation with a small 6, biohazard (base) or explosion (gear) with a small 1. Pick "Mutant Dices" or the system's dice in the Dice So Nice settings.
-- **Chat:** the system's roll card uses the same faces, and plain rolls like `/r 5db + 2ds + 1dg` show small dice with the count of successes, trauma and gear damage instead of one big image and a meaningless total.
-- **Dice roller:** a dice button in the Token controls and under the chat input opens a dialog to roll any number of base, skill and gear dice. The roll uses the system's roll card, so it can be pushed. Macros can call `game.modules.get("mutant-dices").api.openRoller()`.
+### Dice faces that make sense
+
+Every face shows what it means, in the colors of the system's dice:
+
+![All dice faces](docs/images/dice-faces.png)
+
+| Die | 1 | 2 – 5 | 6 |
+| --- | --- | --- | --- |
+| **Base** (yellow) | Biohazard: trauma | Number in a circle | Radiation: success |
+| **Skill** (green) | Number 1 | Number in a circle | Radiation: success |
+| **Gear** (black) | Explosion: gear damage | Number in a circle | Radiation: success |
+
+### 3D dice with Dice So Nice
+
+With [Dice So Nice](https://foundryvtt.com/packages/dice-so-nice) installed, every Mutant roll throws 3D dice with the new faces: rolls from the character sheet, from the dice roller and from chat commands.
+
+![3D base, skill and gear dice](docs/images/dice-3d-roller.webp)
+
+The Mutant Dices set is selected by default. You can switch back to the system's original dice in the Dice So Nice settings at any time.
+
+### Readable results in chat
+
+The system's roll card now shows each die with its number or symbol, so you can see exactly what was rolled. The usual summary of successes, trauma and gear damage stays below the dice.
+
+<p>
+  <img src="docs/images/chat-sheet-roll.png" alt="Scavenge roll in chat" width="300">
+</p>
+
+### Pushing works as usual
+
+The **Push** button rerolls the dice that didn't show a success, trauma or gear damage, and the pushed card uses the same faces.
+
+<p>
+  <img src="docs/images/chat-roller-roll.png" alt="Roll before pushing" width="300">
+  <img src="docs/images/chat-pushed.png" alt="The same roll after pushing" width="300">
+</p>
+
+### Quick dice roller
+
+A new dice button opens the **Mutant Dice Roller**: choose a name for the roll and how many base, skill and gear dice to throw, then click **Roll**. The roll goes through the system's own roll card, so it can be pushed like any other roll.
+
+The button is next to the roll mode buttons, under the chat:
+
+![Dice button next to the roll mode buttons](docs/images/chat-controls-button.png)
+
+<p>
+  <img src="docs/images/roller-empty.png" alt="Mutant Dice Roller" width="260">
+  <img src="docs/images/roller-filled.png" alt="Mutant Dice Roller with dice selected" width="260">
+</p>
+
+The same button is also in the **Token controls** on the left of the canvas.
+
+### Chat commands
+
+Plain rolls with the system's dice also use the new faces. Type for example `/r 3db + 2ds + 1dg` (`db` = base, `ds` = skill, `dg` = gear) to roll and see the dice side by side with the count of successes, trauma and gear damage, instead of one big image and a meaningless total.
 
 ## Installation
 
-In Foundry, go to **Add-on Modules → Install Module** and paste the manifest URL:
+In Foundry, go to **Add-on Modules → Install Module** and paste this manifest URL:
 
 ```
 https://github.com/f-fabner/mutant-dices/releases/latest/download/module.json
+```
+
+Then enable **Mutant Dices** in your world under **Game Settings → Manage Modules**.
+
+## Requirements
+
+- Foundry VTT v13 or v14
+- The [Mutant: Year Zero](https://foundryvtt.com/packages/mutant-year-zero) system
+- [Dice So Nice](https://foundryvtt.com/packages/dice-so-nice) (optional, for the 3D dice)
+
+## Settings
+
+- **Mutant Dices faces in chat:** turn the new faces in chat on or off. Each player can choose for themselves.
+
+## For macro authors
+
+Open the dice roller from a macro with:
+
+```js
+game.modules.get("mutant-dices").api.openRoller();
 ```
 
 ## Development
 
 To test locally, create a symbolic link from this folder to `Data/modules/mutant-dices` inside your Foundry user data folder.
 
-The dice faces are generated from `tools/build-dice-faces.mjs`. After changing it, run:
+The dice faces are generated by `tools/build-dice-faces.mjs`. After changing it, run:
 
 ```
 npm install
 npm run build:faces
 ```
-
-## Structure
 
 | Path | Contents |
 | --- | --- |
@@ -39,8 +113,11 @@ npm run build:faces
 | `lang/` | Localization files |
 | `templates/` | Handlebars templates |
 | `assets/dice/` | Dice faces (SVG for chat, PNG for Dice So Nice) |
+| `docs/images/` | Screenshots for this README (not shipped) |
 | `tools/` | Development scripts (not shipped) |
 
-## Releases
+To publish a version, create a `vX.Y.Z` tag and publish a GitHub Release. The workflow in `.github/workflows/release.yml` builds `module.zip` and `module.json` with the correct version and URLs.
 
-Create a `vX.Y.Z` tag and publish a GitHub Release. The workflow in `.github/workflows/release.yml` builds `module.zip` and `module.json` with the correct version and URLs.
+## License
+
+[MIT](LICENSE). Mutant: Year Zero is published by Free League Publishing. This is an unofficial fan-made module.

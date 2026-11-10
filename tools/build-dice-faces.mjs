@@ -5,7 +5,8 @@
  * so the same file works on top of a Dice So Nice colorset and on top of a
  * CSS-colored tile in the chat.
  *
- * It also writes a 512 px PNG of each face, used by Dice So Nice.
+ * It also writes a 512 px PNG of each face, used by Dice So Nice,
+ * and docs/images/dice-faces.png, the overview shown in the README.
  *
  * Usage: npm install && npm run build:faces
  */
@@ -111,3 +112,29 @@ for (const type of Object.keys(DICE)) {
   }
 }
 console.log(`Wrote ${Object.keys(DICE).length * 6} faces (SVG + PNG) to ${OUT_DIR}`);
+
+/* ------------------------------------------------------------------ */
+/*  README overview: one row per die, faces 1 to 6                     */
+/* ------------------------------------------------------------------ */
+
+const TILE = 110;
+const GAP = 16;
+const LABEL_WIDTH = 90;
+const types = Object.keys(DICE);
+const width = LABEL_WIDTH + 6 * TILE + 5 * GAP + 2 * GAP;
+const height = types.length * TILE + (types.length + 1) * GAP;
+let sheet = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">`;
+types.forEach((type, row) => {
+  const y = GAP + row * (TILE + GAP);
+  sheet += `<text x="${GAP}" y="${y + TILE / 2 + 7}" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#888888">${DICE[type].label}</text>`;
+  for (let v = 1; v <= 6; v++) {
+    const x = GAP + LABEL_WIDTH + (v - 1) * (TILE + GAP);
+    const inner = face(type, v).trim().replace('width="256" height="256"', `x="${x + 6}" y="${y + 6}" width="${TILE - 12}" height="${TILE - 12}"`);
+    sheet += `<rect x="${x}" y="${y}" width="${TILE}" height="${TILE}" rx="18" fill="${DICE[type].body}"/>${inner}`;
+  }
+});
+sheet += "</svg>";
+const DOCS_DIR = join(ROOT, "docs", "images");
+mkdirSync(DOCS_DIR, { recursive: true });
+writeFileSync(join(DOCS_DIR, "dice-faces.png"), new Resvg(sheet, { font: { loadSystemFonts: true } }).render().asPng());
+console.log(`Wrote ${join(DOCS_DIR, "dice-faces.png")}`);
