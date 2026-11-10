@@ -66,6 +66,11 @@ The same button is also in the **Token controls** on the left of the canvas.
 
 Plain rolls with the system's dice also use the new faces. Type for example `/r 3db + 2ds + 1dg` (`db` = base, `ds` = skill, `dg` = gear) to roll and see the dice side by side with the count of successes, trauma and gear damage, instead of one big image and a meaningless total.
 
+<p>
+  <img src="docs/images/chat-command.png" alt="Typing /r 3db + 2ds + 1dg in chat" width="300">
+  <img src="docs/images/chat-command-roll.png" alt="Result of /r 3db + 2ds + 1dg" width="300">
+</p>
+
 ## Installation
 
 In Foundry, go to **Add-on Modules → Install Module** and paste this manifest URL:
