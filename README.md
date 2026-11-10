@@ -4,7 +4,9 @@
 
 Mutant Dices gives the base, skill and gear dice faces that look like the physical dice: numbers you can read at a glance, radiation on the 6, biohazard and explosion on the 1. You get the same faces on the 3D dice, in every chat roll, and in a new quick dice roller.
 
-> **Work in progress.** The module works, but it is still being developed. Expect changes, and please [report any bugs](https://github.com/f-fabner/mutant-dices/issues).
+> **Free, unofficial fan module.** Mutant Dices is made by a fan, costs nothing and never will. It is not affiliated with or endorsed by Free League Publishing. See [Disclaimer](#disclaimer).
+
+Version 1.0 is the first stable release: everything below is tested and working on Foundry v14. The module is still actively developed, so new features may come. Found a bug or have an idea? [Open an issue](https://github.com/f-fabner/mutant-dices/issues).
 
 ![3D dice rolled from a character sheet](docs/images/dice-3d-sheet-roll.webp)
 
@@ -64,18 +66,30 @@ The same button is also in the **Token controls** on the left of the canvas.
 
 ### Chat commands
 
-You can also roll Mutant dice straight from chat. Type for example `/r 3db + 2ds + 1dg` (`db` = base, `ds` = skill, `dg` = gear) and you get the full roll card with the new faces and the **Push** button, just like a roll from the character sheet.
+You can also roll Mutant dice straight from chat: `db` is a base die, `ds` a skill die and `dg` a gear die. You get the full roll card with the new faces and the **Push** button, just like a roll from the character sheet.
 
-- Add a name after `#`: `/r 3db + 1ds # Sneak` shows "Sneak" on the card.
+Type `/r 3db + 2ds + 1dg` to roll 3 base, 2 skill and 1 gear dice. The card is called "Mutant Roll":
+
+<p>
+  <img src="docs/images/command-roll.png" alt="Typing /r 3db + 2ds + 1dg in chat" width="300">
+  <img src="docs/images/command-roll-card.png" alt="Mutant Roll card with the Push button" width="300">
+</p>
+
+Add a name after `#` to label the roll, for example `/r 3db + 2ds + 1dg # Shoot`. The name stays on the card when you push:
+
+<p>
+  <img src="docs/images/command-named-roll.png" alt="Typing a roll with a name after #" width="300">
+</p>
+<p>
+  <img src="docs/images/command-named-roll-card.png" alt="Named roll card" width="300">
+  <img src="docs/images/command-named-roll-pushed.png" alt="The same roll after pushing once" width="300">
+</p>
+
+- Each push adds "Pushed (1)", "Pushed (2)" and so on to the title.
 - If a token is selected, the roll is made as that character.
 - `/roll` works too, and upper case is fine (`/R 3DB`).
 - Commands with anything else in them, like `/r 2db + 1d20`, are normal Foundry rolls.
 - The card uses the roll mode selected under the chat (public, private GM, blind, self). A command that asks for a different mode, like `/gmr 2db` while the chat is set to public, keeps that mode: it still shows the new faces and the count of successes, trauma and gear damage, but can't be pushed.
-
-<p>
-  <img src="docs/images/chat-command.png" alt="Typing /r 3db + 2ds + 1dg in chat" width="300">
-  <img src="docs/images/chat-command-roll.png" alt="Result of /r 3db + 2ds + 1dg" width="300">
-</p>
 
 ## Installation
 
@@ -130,6 +144,16 @@ npm run build:faces
 
 To publish a version, create a `vX.Y.Z` tag and publish a GitHub Release. The workflow in `.github/workflows/release.yml` builds `module.zip` and `module.json` with the correct version and URLs.
 
+## Disclaimer
+
+- **Unofficial.** Mutant Dices is an unofficial, fan-made module. It is not affiliated with, endorsed, sponsored or approved by Free League Publishing (Fria Ligan AB).
+- **Rights.** Mutant: Year Zero and all related names, trademarks and content are the property of Free League Publishing. All rights reserved by their respective owners.
+- **Free.** This module is completely free. It is not sold, there is no paid version, and no money or donations are asked for.
+- **Original artwork.** The dice faces were drawn from scratch for this module, using common symbols (numbers, radiation, biohazard, explosion). No art was copied from official products. The module needs the [Mutant: Year Zero system](https://foundryvtt.com/packages/mutant-year-zero) and doesn't include any game rules or book content.
+- **Why it exists.** I made it, with the help of Claude (Anthropic's AI assistant), to make dice easier to read at my own table, and I'm sharing it so every Mutant table on Foundry can use it too.
+
+If you own rights to any of this material and have a concern, please [open an issue](https://github.com/f-fabner/mutant-dices/issues) and it will be addressed promptly.
+
 ## License
 
-[MIT](LICENSE). Mutant: Year Zero is published by Free League Publishing. This is an unofficial fan-made module.
+The code and the dice face artwork of this module are released under the [MIT license](LICENSE). This license covers only this module's own work, not Mutant: Year Zero or any Free League Publishing content.

@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.0] - 2026-11-10
+First stable release.
+- README: new screenshots of chat commands and pushing, and a disclaimer: unofficial, free, not affiliated with Free League Publishing.
+
 ## [0.2.1] - 2026-11-10
 - Fixed `/r` rolls of Mutant dice not getting the Push button on Foundry v14.
 

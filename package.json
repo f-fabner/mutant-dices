@@ -1,6 +1,6 @@
 {
   "name": "mutant-dices",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "private": true,
   "description": "Custom dice faces, chat display and dice roller for the Mutant: Year Zero system on Foundry VTT.",
   "type": "module",
