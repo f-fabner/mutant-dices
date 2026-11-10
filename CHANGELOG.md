@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.2.0] - 2026-11-10
+- Chat commands with only Mutant dice (`/r 3db + 2ds + 1dg`) now make the system's roll card, so they can be pushed. Text after `#` becomes the roll name.
+- New world setting "Push for /r rolls" to turn this off.
+- Rolls from the dice roller are made as the selected token's character.
+
 ## [0.1.1] - 2026-11-10
 - Fixed the + and − buttons in the dice roller.
 

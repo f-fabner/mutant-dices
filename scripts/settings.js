@@ -12,6 +12,15 @@ export function registerSettings() {
     requiresReload: true
   });
 
+  game.settings.register(MODULE_ID, "pushableCommands", {
+    name: "MUTANT_DICES.Settings.PushableCommands.Name",
+    hint: "MUTANT_DICES.Settings.PushableCommands.Hint",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: true
+  });
+
   game.settings.register(MODULE_ID, "debug", {
     name: "MUTANT_DICES.Settings.Debug.Name",
     hint: "MUTANT_DICES.Settings.Debug.Hint",

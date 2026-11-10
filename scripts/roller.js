@@ -61,9 +61,21 @@ async function roll(fields) {
     return;
   }
   const rollName = fields.rollName.value.trim() || i18n("Roller.DefaultName");
+  return rollMutantDice({ rollName, ...dice });
+}
 
+/**
+ * Roll MYZ dice through the system's roller, so the chat card has the Push button.
+ * Speaks as the selected token's actor (or the user's character), like a normal roll.
+ * @param {{rollName: string, base: number, skill: number, gear: number}} options
+ */
+export async function rollMutantDice({ rollName, base = 0, skill = 0, gear = 0 }) {
+  const dice = { base, skill, gear };
   const systemRoller = game.myz?.DiceRoller;
-  if (systemRoller) return systemRoller.Roll({ rollName, ...dice });
+  if (systemRoller) {
+    const actor = ChatMessage.getSpeakerActor(ChatMessage.getSpeaker());
+    return systemRoller.Roll({ rollName, ...dice, actor, actorUuid: actor?.uuid ?? "" });
+  }
 
   // Fallback if the system roller isn't available: a plain roll, still shown with the module's faces.
   const formula = Object.entries(dice)

@@ -64,7 +64,12 @@ The same button is also in the **Token controls** on the left of the canvas.
 
 ### Chat commands
 
-Plain rolls with the system's dice also use the new faces. Type for example `/r 3db + 2ds + 1dg` (`db` = base, `ds` = skill, `dg` = gear) to roll and see the dice side by side with the count of successes, trauma and gear damage, instead of one big image and a meaningless total.
+You can also roll Mutant dice straight from chat. Type for example `/r 3db + 2ds + 1dg` (`db` = base, `ds` = skill, `dg` = gear) and you get the full roll card with the new faces and the **Push** button, just like a roll from the character sheet.
+
+- Add a name after `#`: `/r 3db + 1ds # Sneak` shows "Sneak" on the card.
+- If a token is selected, the roll is made as that character.
+- `/roll` works too, and upper case is fine (`/R 3DB`).
+- Commands with anything else in them, like `/r 2db + 1d20`, are normal Foundry rolls. Plain rolls with Mutant dice, like `/gmr 2db`, still show the new faces and the count of successes, trauma and gear damage, but can't be pushed.
 
 <p>
   <img src="docs/images/chat-command.png" alt="Typing /r 3db + 2ds + 1dg in chat" width="300">
@@ -90,6 +95,7 @@ Then enable **Mutant Dices** in your world under **Game Settings → Manage Modu
 ## Settings
 
 - **Mutant Dices faces in chat:** turn the new faces in chat on or off. Each player can choose for themselves.
+- **Push for /r rolls:** chat commands with only Mutant dice use the system's roll card, so they can be pushed. Set by the GM for the whole world. Turn it off to get plain rolls instead.
 
 ## For macro authors
 

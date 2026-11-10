@@ -23,6 +23,10 @@
         "Name": "Faces do Mutant Dices no chat",
         "Hint": "Mostra os dados de Mutant: Year Zero no chat com as faces do módulo."
       },
+      "PushableCommands": {
+        "Name": "Push nas rolagens /r",
+        "Hint": "Comandos no chat só com dados de Mutant, como \"/r 3db + 2ds + 1dg\", usam o card de rolagem do sistema e podem ser forçados (Push). O texto depois de # vira o nome da rolagem."
+      },
       "Debug": {
         "Name": "Modo debug",
         "Hint": "Exibe informações extras no console do navegador."
