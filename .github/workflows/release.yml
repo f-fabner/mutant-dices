@@ -10,6 +10,8 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      FOUNDRY_RELEASE_TOKEN: ${{ secrets.FOUNDRY_RELEASE_TOKEN }}
     steps:
       - uses: actions/checkout@v4
 
@@ -36,3 +38,25 @@ jobs:
           files: |
             module.json
             module.zip
+
+      # Sends the new version to the foundryvtt.com package listing (Package Release API).
+      # Runs only for normal releases, and only once the FOUNDRY_RELEASE_TOKEN secret exists:
+      # copy the "Package Release Token" from the package's page on foundryvtt.com into
+      # GitHub: Settings > Secrets and variables > Actions > New repository secret.
+      - name: Publish to the Foundry package listing
+        if: ${{ env.FOUNDRY_RELEASE_TOKEN != '' && !github.event.release.prerelease }}
+        run: |
+          REPO="https://github.com/${{ github.repository }}"
+          BODY=$(jq -n \
+            --arg id "$(jq -r .id module.json)" \
+            --arg version "${{ steps.version.outputs.version }}" \
+            --arg manifest "$REPO/releases/download/${{ github.ref_name }}/module.json" \
+            --arg notes "$REPO/releases/tag/${{ github.ref_name }}" \
+            --arg minimum "$(jq -r .compatibility.minimum module.json)" \
+            --arg verified "$(jq -r .compatibility.verified module.json)" \
+            '{id: $id, release: {version: $version, manifest: $manifest, notes: $notes,
+              compatibility: {minimum: $minimum, verified: $verified, maximum: ""}}}')
+          curl --fail-with-body -sS -X POST "https://foundryvtt.com/_api/packages/release_version/" \
+            -H "Content-Type: application/json" \
+            -H "Authorization: $FOUNDRY_RELEASE_TOKEN" \
+            -d "$BODY"
