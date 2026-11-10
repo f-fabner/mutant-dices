@@ -2,6 +2,18 @@
 
 How Mutant Dices works, in my own words. These are my answers about the main parts of the code, translated from Portuguese to English and formatted.
 
+## Hooks
+
+A hook is a notice that Foundry sends out when something happens: the player loaded something, I'm going to create a message, I drew the message, I did something, Dice So Nice is ready. The module subscribes to these notices and runs a function for each one. That's why it doesn't need to change the system: it only reacts to these moments. It catches the hook and does what it has to do, which is to show things in a better way.
+
+## Settings: world and client
+
+Push for `/r` rolls changes what happens in the game: the card is created for the whole table. That's why the GM decides for everyone. The faces in chat are only visual, and each person sees their own screen, so each player chooses their own.
+
+## Interface texts
+
+To change the text of a button, you don't need to touch anything in the JavaScript. The texts are in the `lang` folder, in `en.json` or `pt-BR.json`. The code only keeps a key, like `"MUTANT_DICES.Roller.Roll"`, and Foundry looks up the text in the file for the user's language. That's how you put in texts without changing code or touching anything else.
+
 ## Restyling the system's roll card
 
 When someone makes any roll straight from the character sheet, the system builds a card in chat with its own images. The module takes the system's original images, which are blank, and shows the rolled numbers and the assigned symbols instead: the biohazards, the radiation symbols and the numbers in circles. That improves how the roll looks in chat. Before, the chat showed blank dice; now it shows the numbers and the faces I wanted, so the player sees the whole picture.
