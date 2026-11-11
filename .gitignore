@@ -17,3 +17,6 @@ desktop.ini
 .vscode/
 .idea/
 *.log
+
+# Raw recordings and originals (kept locally, not in the repo)
+media-raw/
