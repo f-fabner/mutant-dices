@@ -8,7 +8,14 @@ Mutant Dices gives the base, skill and gear dice faces that look like the physic
 
 Version 1.0 is the first stable release: everything below is tested and working on Foundry v14. The module is still actively developed, so new features may come. Found a bug or have an idea? [Open an issue](https://github.com/f-fabner/mutant-dices/issues).
 
-![3D dice rolled from a character sheet](docs/images/dice-3d-sheet-roll.webp)
+![Rolling from the character sheet: 3D dice with the new faces, the roll card, then a push](docs/images/dice-3d-roll.gif)
+
+## Before and after
+
+| | Without Mutant Dices | With Mutant Dices |
+| --- | --- | --- |
+| **Roll from the character sheet** | <img src="docs/images/before-sheet-roll.png" alt="System card with blank colored squares" width="280"> | <img src="docs/images/after-sheet-roll.png" alt="Card with numbered dice faces" width="280"> |
+| **`/r 3db + 2ds + 1dg` in chat** | <img src="docs/images/before-command-roll.png" alt="Plain roll showing a total and one giant image" width="280"> | <img src="docs/images/after-command-roll.png" alt="Full roll card with dice faces and the Push button" width="280"> |
 
 ## Features
 
@@ -54,6 +61,8 @@ The **Push** button rerolls the dice that didn't show a success, trauma or gear 
 A new dice button opens the **Mutant Dice Roller**: choose a name for the roll and how many base, skill and gear dice to throw, then click **Roll**. The roll goes through the system's own roll card, so it can be pushed like any other roll.
 
 The button is next to the roll mode buttons, under the chat:
+
+![Opening the dice roller, rolling and pushing](docs/images/roll-button.gif)
 
 ![Dice button next to the roll mode buttons](docs/images/chat-controls-button.png)
 
