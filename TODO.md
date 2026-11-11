@@ -2,7 +2,7 @@
 
 Ideas and planned features for future versions of Mutant Dices.
 
-## 1. Choose the module's language in its settings
+## 1. Choose the module's language in its settings (in progress: v1.1.0)
 
 Let each user switch the module between English and Portuguese from the module's own page in **Game Settings**, without changing Foundry's language.
 
@@ -10,7 +10,7 @@ Let each user switch the module between English and Portuguese from the module's
 - A module-level override needs a client setting (Automatic / English / Português) and code that reads texts from the chosen language file instead of Foundry's.
 - Later: a Portuguese version of the README and of the foundryvtt.com page.
 
-## 2. Colorblind modes
+## 2. Colorblind modes (in progress: v1.1.0)
 
 A client setting so each player picks the palette that works for them. The colors apply to the chat faces, the dice roller and the 3D dice.
 

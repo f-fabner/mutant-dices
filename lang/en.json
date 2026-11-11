@@ -19,6 +19,14 @@
       "NoDice": "Choose at least one die to roll."
     },
     "Settings": {
+      "Palette": {
+        "Name": "Dice colors",
+        "Hint": "Colors of the dice in chat, in the dice roller and on the 3D dice. The colorblind options also give each die type its own ring style. Only changes what you see."
+      },
+      "Language": {
+        "Name": "Module language",
+        "Hint": "Language of this module's texts. The rest of Foundry keeps its own language."
+      },
       "RestyleChat": {
         "Name": "Mutant Dice faces in chat",
         "Hint": "Show Mutant: Year Zero dice in chat with the module's faces."
@@ -34,6 +42,18 @@
     },
     "Errors": {
       "RollCard": "Mutant Dices could not create the roll card. See the browser console (F12) for details."
+    },
+    "Palettes": {
+      "default": "Default (yellow, green, black)",
+      "universal": "Universal (yellow, blue, black)",
+      "deuteranopia": "Deuteranopia / protanopia: red-green (yellow, blue, black)",
+      "tritanopia": "Tritanopia: blue-yellow (orange, green, black)",
+      "achromatopsia": "Achromatopsia: grayscale (white, gray, black)"
+    },
+    "Languages": {
+      "auto": "Same as Foundry",
+      "en": "English",
+      "pt-BR": "Português (Brasil)"
     }
   }
 }

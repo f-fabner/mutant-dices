@@ -1,15 +1,27 @@
-import { MODULE_ID, SYSTEM_ID, log } from "./constants.js";
+import { DICE, MODULE_ID, SYSTEM_ID, getPalette, log } from "./constants.js";
 import { registerSettings } from "./settings.js";
 import { registerDiceSoNice } from "./dice-so-nice.js";
 import { onRenderChatMessage } from "./chat.js";
 import { onPreCreateChatMessage } from "./commands.js";
 import { openRoller } from "./roller.js";
+import { applyModuleLanguage } from "./language.js";
 
 Hooks.once("init", () => {
   log("Initializing");
   registerSettings();
+  applyPaletteColors();
   game.modules.get(MODULE_ID).api = { openRoller };
 });
+
+Hooks.once("i18nInit", applyModuleLanguage);
+
+/** Set the CSS colors of the chat and roller dice tiles to this user's palette. */
+function applyPaletteColors() {
+  const palette = getPalette();
+  for (const type of Object.keys(DICE)) {
+    document.documentElement.style.setProperty(`--mutant-dices-${type}`, palette[type].body);
+  }
+}
 
 Hooks.once("ready", () => {
   if (game.system.id !== SYSTEM_ID) {

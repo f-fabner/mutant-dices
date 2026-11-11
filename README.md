@@ -31,6 +31,16 @@ Every face shows what it means, in the colors of the system's dice:
 | **Skill** (green) | Number 1 | Number in a circle | Radiation: success |
 | **Gear** (black) | Explosion: gear damage | Number in a circle | Radiation: success |
 
+### Colorblind modes
+
+Each player can pick the dice colors that work for them in **Configure Settings → Mutant Dices → Dice colors**. The colorblind options use colors chosen to stay distinct for each type of color blindness, and also give each die its own ring style, so you can tell the dice apart even without color: **base** has a solid ring, **skill** a double ring and **gear** a dashed ring. The choice only changes what you see; the other players keep their own.
+
+| Option | Faces |
+| --- | --- |
+| **Universal** and **Deuteranopia / protanopia** (red-green) | ![Universal palette](docs/images/dice-faces-universal.svg) |
+| **Tritanopia** (blue-yellow) | ![Tritanopia palette](docs/images/dice-faces-tritanopia.svg) |
+| **Achromatopsia** (grayscale) | ![Achromatopsia palette](docs/images/dice-faces-achromatopsia.svg) |
+
 ### 3D dice with Dice So Nice
 
 With [Dice So Nice](https://foundryvtt.com/packages/dice-so-nice) installed, every Mutant roll throws 3D dice with the new faces: rolls from the character sheet, from the dice roller and from chat commands.
@@ -118,6 +128,8 @@ Then enable **Mutant Dices** in your world under **Game Settings → Manage Modu
 
 ## Settings
 
+- **Dice colors:** the default colors or a colorblind mode. Each player chooses for themselves.
+- **Module language:** show this module in English or Portuguese, or follow Foundry's language. Each player chooses for themselves.
 - **Mutant Dices faces in chat:** turn the new faces in chat on or off. Each player can choose for themselves.
 - **Push for /r rolls:** chat commands with only Mutant dice use the system's roll card, so they can be pushed. Set by the GM for the whole world. Turn it off to get plain rolls instead.
 

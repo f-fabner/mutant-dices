@@ -3,24 +3,24 @@
  *
  * Every face is a transparent SVG with only the "ink" (ring, number, symbol),
  * so the same file works on top of a Dice So Nice colorset and on top of a
- * CSS-colored tile in the chat.
+ * CSS-colored tile in the chat. One set of faces is written per palette
+ * (scripts/palettes.js) to assets/dice/<palette>/<type>-<value>.svg.
  *
- * It also writes docs/images/dice-faces.svg, the overview shown in the README.
+ * It also writes the overviews shown in the README: docs/images/dice-faces.svg
+ * for the default palette and docs/images/dice-faces-<palette>.svg for the others.
  *
  * Usage: npm run build:faces
  */
 import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { PALETTES, DEFAULT_PALETTE } from "../scripts/palettes.js";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const OUT_DIR = join(ROOT, "assets", "dice");
+const DOCS_DIR = join(ROOT, "docs", "images");
 
-export const DICE = {
-  base: { label: "Base", body: "#f2c200", ink: "#111111" },
-  skill: { label: "Skill", body: "#1f8f3a", ink: "#ffffff" },
-  gear: { label: "Gear", body: "#1c1c1c", ink: "#ffffff" }
-};
+const TYPES = { base: "Base", skill: "Skill", gear: "Gear" };
 
 /* ------------------------------------------------------------------ */
 /*  Digits drawn as strokes so they don't depend on installed fonts    */
@@ -86,25 +86,40 @@ function explosion(ink) {
 /*  Faces                                                              */
 /* ------------------------------------------------------------------ */
 
-const RING = (ink) => `<circle cx="${C}" cy="${C}" r="41" fill="none" stroke="${ink}" stroke-width="5"/>`;
+/**
+ * The outer ring. With markers on, each die type gets its own ring style, so the dice
+ * can be told apart without color: base solid, skill double, gear dashed.
+ */
+function ring(type, ink, markers) {
+  const circle = (r, width, extra = "") =>
+    `<circle cx="${C}" cy="${C}" r="${r}" fill="none" stroke="${ink}" stroke-width="${width}"${extra}/>`;
+  if (markers && type === "skill") return circle(42.5, 2.5) + circle(37.5, 2.5);
+  if (markers && type === "gear") return circle(41, 5, ' stroke-dasharray="9 5.1"');
+  return circle(41, 5);
+}
+
 const SMALL = (n, ink) => digit(n, C, 76, 13, 2.6, ink);
 
-export function face(type, value) {
-  const { ink } = DICE[type];
+export function face(paletteId, type, value) {
+  const palette = PALETTES[paletteId];
+  const { ink } = palette[type];
   const id = `bio-${type}-${value}`;
   let content;
   if (value === 6) content = radiation(ink) + SMALL(6, ink);
   else if (value === 1 && type === "base") content = biohazard(ink, id) + SMALL(1, ink);
   else if (value === 1 && type === "gear") content = explosion(ink) + SMALL(1, ink);
   else content = digit(value, C, C, 46, 7, ink);
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="512" height="512">${RING(ink)}${content}</svg>\n`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="512" height="512">${ring(type, ink, palette.markers)}${content}</svg>\n`;
 }
 
-mkdirSync(OUT_DIR, { recursive: true });
-for (const type of Object.keys(DICE)) {
-  for (let v = 1; v <= 6; v++) writeFileSync(join(OUT_DIR, `${type}-${v}.svg`), face(type, v));
+for (const paletteId of Object.keys(PALETTES)) {
+  const dir = join(OUT_DIR, paletteId);
+  mkdirSync(dir, { recursive: true });
+  for (const type of Object.keys(TYPES)) {
+    for (let v = 1; v <= 6; v++) writeFileSync(join(dir, `${type}-${v}.svg`), face(paletteId, type, v));
+  }
 }
-console.log(`Wrote ${Object.keys(DICE).length * 6} faces to ${OUT_DIR}`);
+console.log(`Wrote ${Object.keys(PALETTES).length} palettes x 18 faces to ${OUT_DIR}`);
 
 /* ------------------------------------------------------------------ */
 /*  README overview: one row per die, faces 1 to 6                     */
@@ -113,21 +128,28 @@ console.log(`Wrote ${Object.keys(DICE).length * 6} faces to ${OUT_DIR}`);
 const TILE = 110;
 const GAP = 16;
 const LABEL_WIDTH = 90;
-const types = Object.keys(DICE);
-const width = LABEL_WIDTH + 6 * TILE + 5 * GAP + 2 * GAP;
-const height = types.length * TILE + (types.length + 1) * GAP;
-let sheet = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">`;
-types.forEach((type, row) => {
-  const y = GAP + row * (TILE + GAP);
-  sheet += `<text x="${GAP}" y="${y + TILE / 2 + 7}" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#888888">${DICE[type].label}</text>`;
-  for (let v = 1; v <= 6; v++) {
-    const x = GAP + LABEL_WIDTH + (v - 1) * (TILE + GAP);
-    const inner = face(type, v).trim().replace('width="512" height="512"', `x="${x + 6}" y="${y + 6}" width="${TILE - 12}" height="${TILE - 12}"`);
-    sheet += `<rect x="${x}" y="${y}" width="${TILE}" height="${TILE}" rx="18" fill="${DICE[type].body}"/>${inner}`;
-  }
-});
-sheet += "</svg>\n";
-const DOCS_DIR = join(ROOT, "docs", "images");
+
+function overview(paletteId) {
+  const palette = PALETTES[paletteId];
+  const types = Object.keys(TYPES);
+  const width = LABEL_WIDTH + 6 * TILE + 5 * GAP + 2 * GAP;
+  const height = types.length * TILE + (types.length + 1) * GAP;
+  let sheet = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">`;
+  types.forEach((type, row) => {
+    const y = GAP + row * (TILE + GAP);
+    sheet += `<text x="${GAP}" y="${y + TILE / 2 + 7}" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#888888">${TYPES[type]}</text>`;
+    for (let v = 1; v <= 6; v++) {
+      const x = GAP + LABEL_WIDTH + (v - 1) * (TILE + GAP);
+      const inner = face(paletteId, type, v).trim().replace('width="512" height="512"', `x="${x + 6}" y="${y + 6}" width="${TILE - 12}" height="${TILE - 12}"`);
+      sheet += `<rect x="${x}" y="${y}" width="${TILE}" height="${TILE}" rx="18" fill="${palette[type].body}"/>${inner}`;
+    }
+  });
+  return sheet + "</svg>\n";
+}
+
 mkdirSync(DOCS_DIR, { recursive: true });
-writeFileSync(join(DOCS_DIR, "dice-faces.svg"), sheet);
-console.log(`Wrote ${join(DOCS_DIR, "dice-faces.svg")}`);
+for (const paletteId of Object.keys(PALETTES)) {
+  const name = paletteId === DEFAULT_PALETTE ? "dice-faces.svg" : `dice-faces-${paletteId}.svg`;
+  writeFileSync(join(DOCS_DIR, name), overview(paletteId));
+}
+console.log(`Wrote ${Object.keys(PALETTES).length} overviews to ${DOCS_DIR}`);
