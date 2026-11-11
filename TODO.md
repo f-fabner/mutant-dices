@@ -19,8 +19,7 @@ Starting proposal, to be checked against research on each type of color blindnes
 | Mode | Base | Skill | Gear |
 | --- | --- | --- | --- |
 | Default | Yellow | Green | Black |
-| Universal | Yellow | Blue | Black |
-| Deuteranopia (red–green) | Yellow | Blue | Black |
+| Universal, also for deuteranopia / protanopia (red–green) | Yellow | Blue | Black |
 | Tritanopia (blue–yellow) | Red | Green | Black |
 | Achromatopsia (grayscale only) | White, black symbols | Gray, black symbols | Black, white symbols |
 

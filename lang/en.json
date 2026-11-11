@@ -46,8 +46,7 @@
     },
     "Palettes": {
       "default": "Default (yellow, green, black)",
-      "universal": "Universal (yellow, blue, black)",
-      "deuteranopia": "Deuteranopia / protanopia: red-green (yellow, blue, black)",
+      "universal": "Universal / deuteranopia / protanopia (yellow, blue, black)",
       "tritanopia": "Tritanopia: blue-yellow (orange, green, black)",
       "achromatopsia": "Achromatopsia: grayscale (white, gray, black)"
     },

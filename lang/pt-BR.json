@@ -46,8 +46,7 @@
     },
     "Palettes": {
       "default": "Padrão (amarelo, verde, preto)",
-      "universal": "Universal (amarelo, azul, preto)",
-      "deuteranopia": "Deuteranopia / protanopia: vermelho-verde (amarelo, azul, preto)",
+      "universal": "Universal / deuteranopia / protanopia (amarelo, azul, preto)",
       "tritanopia": "Tritanopia: azul-amarelo (laranja, verde, preto)",
       "achromatopsia": "Acromatopsia: tons de cinza (branco, cinza, preto)"
     },

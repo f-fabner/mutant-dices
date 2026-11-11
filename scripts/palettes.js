@@ -18,13 +18,8 @@ export const PALETTES = {
     skill: { body: "#1f8f3a", ink: "#ffffff" },
     gear: { body: "#1c1c1c", ink: "#ffffff" }
   },
+  // Also the palette for deuteranopia and protanopia (red-green), the most common types.
   universal: {
-    markers: true,
-    base: { body: "#f0e442", ink: "#111111" },
-    skill: { body: "#0072b2", ink: "#ffffff" },
-    gear: { body: "#1c1c1c", ink: "#ffffff" }
-  },
-  deuteranopia: {
     markers: true,
     base: { body: "#f0e442", ink: "#111111" },
     skill: { body: "#0072b2", ink: "#ffffff" },

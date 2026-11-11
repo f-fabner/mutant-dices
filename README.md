@@ -37,7 +37,7 @@ Each player can pick the dice colors that work for them in **Configure Settings 
 
 | Option | Faces |
 | --- | --- |
-| **Universal** and **Deuteranopia / protanopia** (red-green) | ![Universal palette](docs/images/dice-faces-universal.svg) |
+| **Universal**, also for **deuteranopia / protanopia** (red-green) | ![Universal palette](docs/images/dice-faces-universal.svg) |
 | **Tritanopia** (blue-yellow) | ![Tritanopia palette](docs/images/dice-faces-tritanopia.svg) |
 | **Achromatopsia** (grayscale) | ![Achromatopsia palette](docs/images/dice-faces-achromatopsia.svg) |
 
