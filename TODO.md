@@ -37,3 +37,7 @@ Example: the player just stole a car and doesn't have its stats. They pick **Dri
 - Read the attribute and skill values from the selected token's actor (or the user's character).
 - Each skill already knows its attribute in the Mutant: Year Zero system (Drive → Agility).
 - Keep the manual fields, so you can still roll any number of dice.
+
+## 4. Settings shortcut in the dice roller
+
+Add a small gear icon to the dice roller pop-up that opens the module's own settings (Game Settings → Mutant Dices) directly, so players can change the dice colors or the module language without looking for them.
