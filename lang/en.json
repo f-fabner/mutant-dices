@@ -16,7 +16,8 @@
       "RollName": "Roll name",
       "DefaultName": "Mutant Roll",
       "Roll": "Roll",
-      "NoDice": "Choose at least one die to roll."
+      "NoDice": "Choose at least one die to roll.",
+      "Settings": "Module settings"
     },
     "Settings": {
       "Palette": {

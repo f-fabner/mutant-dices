@@ -3,6 +3,8 @@
 ## [1.1.0] - Unreleased
 - Colorblind modes: universal, deuteranopia / protanopia, tritanopia and achromatopsia palettes, chosen by each player. The colorblind modes also give each die type its own ring style (base solid, skill double, gear dashed).
 - Module language setting: show the module in English or Portuguese, independent of Foundry's language.
+- Gear icon in the dice roller that opens the module's settings.
+- The roll name label in the dice roller no longer wraps in Portuguese.
 
 ## [1.0.2] - 2026-11-10
 - Fixed the 3D dice showing text instead of the faces in Dice So Nice.

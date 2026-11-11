@@ -39,7 +39,35 @@ export function openRoller() {
     }]
   });
   // One delegated listener on the dialog element, added once it exists.
-  dialog.render({ force: true }).then(() => attachSteppers(dialog.element));
+  dialog.render({ force: true }).then(() => {
+    attachSteppers(dialog.element);
+    addSettingsButton(dialog.element);
+  });
+}
+
+/** Gear button in the roller's title bar that opens this module's settings. */
+function addSettingsButton(root) {
+  const header = root.querySelector(".window-header");
+  if (!header) return;
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "header-control icon fa-solid fa-gear";
+  button.dataset.tooltip = i18n("Roller.Settings");
+  button.setAttribute("aria-label", button.dataset.tooltip);
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    openModuleSettings();
+  });
+  const close = header.querySelector('[data-action="close"]');
+  header.insertBefore(button, close);
+}
+
+/** Open Game Settings directly on the Mutant Dices page. */
+export async function openModuleSettings() {
+  // Close an open Game Settings window first, so the new one opens on our page.
+  await foundry.applications.instances.get("settings-config")?.close();
+  const SettingsConfig = foundry.applications.settings.SettingsConfig;
+  return new SettingsConfig({ initialCategory: MODULE_ID }).render({ force: true });
 }
 
 function attachSteppers(root) {

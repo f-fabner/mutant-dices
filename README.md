@@ -70,6 +70,8 @@ The **Push** button rerolls the dice that didn't show a success, trauma or gear 
 
 A new dice button opens the **Mutant Dice Roller**: choose a name for the roll and how many base, skill and gear dice to throw, then click **Roll**. The roll goes through the system's own roll card, so it can be pushed like any other roll.
 
+The gear icon in the roller's title bar opens the module's settings, where you can change the dice colors or the module language.
+
 The button is next to the roll mode buttons, under the chat:
 
 ![Opening the dice roller, rolling and pushing](docs/images/roll-button.gif)

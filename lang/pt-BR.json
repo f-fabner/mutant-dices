@@ -16,7 +16,8 @@
       "RollName": "Nome da rolagem",
       "DefaultName": "Rolagem Mutante",
       "Roll": "Rolar",
-      "NoDice": "Escolha pelo menos um dado para fazer a rolagem."
+      "NoDice": "Escolha pelo menos um dado para fazer a rolagem.",
+      "Settings": "Configurações do módulo"
     },
     "Settings": {
       "Palette": {
