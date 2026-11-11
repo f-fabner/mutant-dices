@@ -21,12 +21,12 @@
     },
     "Settings": {
       "Palette": {
-        "Name": "Dice colors",
-        "Hint": "Colors of the dice in chat, in the dice roller and on the 3D dice. The colorblind options also give each die type its own ring style. Only changes what you see."
+        "Name": "Color options",
+        "Hint": "Choose the option that suits you best, or the one you prefer."
       },
       "Language": {
-        "Name": "Module language",
-        "Hint": "Language of this module's texts. The rest of Foundry keeps its own language."
+        "Name": "Language option",
+        "Hint": "Choose your language option."
       },
       "RestyleChat": {
         "Name": "Mutant Dice faces in chat",
@@ -45,10 +45,10 @@
       "RollCard": "Mutant Dices could not create the roll card. See the browser console (F12) for details."
     },
     "Palettes": {
-      "default": "Default (yellow, green, black)",
-      "universal": "Universal / deuteranopia / protanopia (yellow, blue, black)",
-      "tritanopia": "Tritanopia: blue-yellow (orange, green, black)",
-      "achromatopsia": "Achromatopsia: grayscale (white, gray, black)"
+      "default": "Default",
+      "universal": "Universal / Deuteranopia / Protanopia",
+      "tritanopia": "Tritanopia",
+      "achromatopsia": "Achromatopsia"
     },
     "Languages": {
       "auto": "Same as Foundry",

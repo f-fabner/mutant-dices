@@ -17,16 +17,16 @@
       "DefaultName": "Rolagem Mutante",
       "Roll": "Rolar",
       "NoDice": "Escolha pelo menos um dado para fazer a rolagem.",
-      "Settings": "Configurações do módulo"
+      "Settings": "Opções do módulo"
     },
     "Settings": {
       "Palette": {
-        "Name": "Cores dos dados",
-        "Hint": "Cores dos dados no chat, no rolador e nos dados 3D. As opções para daltônicos também dão a cada tipo de dado um estilo de anel próprio. Muda só o que você vê."
+        "Name": "Opção de cores",
+        "Hint": "Escolha aqui a opção que mais se adequa ou a que você prefere."
       },
       "Language": {
-        "Name": "Idioma do módulo",
-        "Hint": "Idioma dos textos deste módulo. O resto do Foundry continua no próprio idioma."
+        "Name": "Opção de idioma",
+        "Hint": "Escolha aqui a sua opção de idioma."
       },
       "RestyleChat": {
         "Name": "Faces dos dados de Mutante no chat",
@@ -45,10 +45,10 @@
       "RollCard": "O Mutant Dices não conseguiu criar o card de rolagem. Veja o console do navegador, apertando F12, para detalhes."
     },
     "Palettes": {
-      "default": "Padrão (amarelo, verde, preto)",
-      "universal": "Universal / deuteranopia / protanopia (amarelo, azul, preto)",
-      "tritanopia": "Tritanopia: azul-amarelo (laranja, verde, preto)",
-      "achromatopsia": "Acromatopsia: tons de cinza (branco, cinza, preto)"
+      "default": "Padrão",
+      "universal": "Universal / Deuteranopia / Protanopia",
+      "tritanopia": "Tritanopia",
+      "achromatopsia": "Acromatopsia"
     },
     "Languages": {
       "auto": "Igual ao Foundry",

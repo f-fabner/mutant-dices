@@ -2,7 +2,7 @@
 
 Ideas and planned features for future versions of Mutant Dices.
 
-## 1. Choose the module's language in its settings (in progress: v1.1.0)
+## 1. Choose the module's language in its settings (done: v1.1.0)
 
 Let each user switch the module between English and Portuguese from the module's own page in **Game Settings**, without changing Foundry's language.
 
@@ -10,7 +10,7 @@ Let each user switch the module between English and Portuguese from the module's
 - A module-level override needs a client setting (Automatic / English / Português) and code that reads texts from the chosen language file instead of Foundry's.
 - Later: a Portuguese version of the README and of the foundryvtt.com page.
 
-## 2. Colorblind modes (in progress: v1.1.0)
+## 2. Colorblind modes (done: v1.1.0)
 
 A client setting so each player picks the palette that works for them. The colors apply to the chat faces, the dice roller and the 3D dice.
 
@@ -37,6 +37,6 @@ Example: the player just stole a car and doesn't have its stats. They pick **Dri
 - Each skill already knows its attribute in the Mutant: Year Zero system (Drive → Agility).
 - Keep the manual fields, so you can still roll any number of dice.
 
-## 4. Settings shortcut in the dice roller (in progress: v1.1.0)
+## 4. Settings shortcut in the dice roller (done: v1.1.0)
 
 Add a small gear icon to the dice roller pop-up that opens the module's own settings (Game Settings → Mutant Dices) directly, so players can change the dice colors or the module language without looking for them.

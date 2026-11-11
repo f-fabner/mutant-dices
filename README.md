@@ -33,7 +33,7 @@ Every face shows what it means, in the colors of the system's dice:
 
 ### Colorblind modes
 
-Each player can pick the dice colors that work for them in **Configure Settings → Mutant Dices → Dice colors**. The colorblind options use colors chosen to stay distinct for each type of color blindness, and also give each die its own ring style, so you can tell the dice apart even without color: **base** has a solid ring, **skill** a double ring and **gear** a dashed ring. The choice only changes what you see; the other players keep their own.
+Each player can pick the dice colors that work for them in **Configure Settings → Mutant Dices → Color options**. The colorblind options use colors chosen to stay distinct for each type of color blindness, and also give each die its own ring style, so you can tell the dice apart even without color: **base** has a solid ring, **skill** a double ring and **gear** a dashed ring. The choice only changes what you see; the other players keep their own.
 
 | Option | Faces |
 | --- | --- |
@@ -130,8 +130,8 @@ Then enable **Mutant Dices** in your world under **Game Settings → Manage Modu
 
 ## Settings
 
-- **Dice colors:** the default colors or a colorblind mode. Each player chooses for themselves.
-- **Module language:** show this module in English or Portuguese, or follow Foundry's language. Each player chooses for themselves.
+- **Color options:** the default colors or a colorblind mode. Each player chooses for themselves.
+- **Language option:** show this module in English or Portuguese, or follow Foundry's language. Each player chooses for themselves.
 - **Mutant Dices faces in chat:** turn the new faces in chat on or off. Each player can choose for themselves.
 - **Push for /r rolls:** chat commands with only Mutant dice use the system's roll card, so they can be pushed. Set by the GM for the whole world. Turn it off to get plain rolls instead.
 
